@@ -7,7 +7,8 @@ const Patient = props => {
     const initialPatientState = {
         id: null,
         name: "",
-        active: false
+        active: false,
+        age: 1
     };
     const [currentPatient, setCurrentPatient] = useState(initialPatientState);
     const [message, setMessage] = useState("");
@@ -36,6 +37,7 @@ const Patient = props => {
         var data = {
             id: currentPatient.id,
             name: currentPatient.name,
+            age: currentPatient.age,
             active: status
         };
 
@@ -85,6 +87,17 @@ const Patient = props => {
                                 id="name"
                                 name="name"
                                 value={currentPatient.name}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="name">Age</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="age"
+                                name="age"
+                                value={currentPatient.age}
                                 onChange={handleInputChange}
                             />
                         </div>

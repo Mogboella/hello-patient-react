@@ -7,6 +7,7 @@ const AddPatient = () => {
         id: null,
         name: "",
         active: false,
+        age: 1,
     };
     const [patient, setPatient] = useState(initialPatientState);
     const [submitted, setSubmitted] = useState(false);
@@ -27,7 +28,8 @@ const AddPatient = () => {
                 setPatient({
                     id: response.data.id,
                     name: response.data.name,
-                    status: response.data.status
+                    status: response.data.status,
+                    age: response.data.age
                 });
                 setSubmitted(true);
                 console.log(response.data);
@@ -63,6 +65,19 @@ const AddPatient = () => {
                                 value={patient.name}
                                 onChange={handleInputChange}
                                 name="name"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="title">Age</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="age"
+                                required
+                                value={patient.age}
+                                onChange={handleInputChange}
+                                name="age"
                             />
                         </div>
 

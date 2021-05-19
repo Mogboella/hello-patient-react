@@ -109,7 +109,7 @@ const PatientsList = () => {
             patientsData.map((patient, index) => (
               <li
                 className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
+                  "list-group-item " + (index === currentIndex ? "active" : "true")
                 }
                 onClick={() => setActivePatient(patient, index)}
                 key={index}
@@ -118,13 +118,19 @@ const PatientsList = () => {
               </li>
             ))}
         </ul>
-
+        <button
+          className="m-3 btn-outline-secondary"
+          onClick={retrievePatients}
+        >
+          Get All
+        </button>
         <button
           className="m-3 btn btn-sm btn-danger"
           onClick={removeAllPatients}
         >
           Remove All
         </button>
+
       </div>
       <div className="col-md-6">
         {currentPatient ? (
@@ -135,6 +141,12 @@ const PatientsList = () => {
                 <strong>Name:</strong>
               </label>{" "}
               {currentPatient.name}
+            </div>
+            <div>
+              <label>
+                <strong>Age:</strong>
+              </label>{" "}
+              {currentPatient.age}
             </div>
             <div>
               <label>
